@@ -1,0 +1,61 @@
+/*********************************************************************
+** Author:      Jeffrey Luong 
+** Date:        8/8/15
+** Description:	BubbleSort a file and print it to a file.
+*********************************************************************/
+#include "BinarySearch.hpp"
+
+/*Psuedocode taken from "Starting Out With C++ Early Objects, Gaddis et al. 7th edition"
+
+	Set first = 0
+	Set last = last subscript in array
+	Set found = false
+	Set Position = -1
+	While found != true and first < last || first == last
+		Set middle to subscript halfway between first and last
+		If array[middle] equals value to find
+			Set found = true
+			Set position = middle
+		Else if array[middle] > value to find
+			Set last = middle - 1
+		Else
+			first = middle + 1
+
+	Return position
+
+*/
+
+/*********************************************************************
+** Function: 	binarySearch()	
+** Description: Searchs through an array using the Binary Search algorithm 
+** Parameters: 	int &[], int, int
+** Returns: 	int
+*********************************************************************/
+int binarySearch(int array[], int numElements, int findValue)
+{
+	int first = 0,
+		last = numElements-1,
+		middle,
+		position = -1;
+	bool found = false;
+
+	while(!found && first <=last)
+	{
+		middle = (first+last) / 2;
+		if(array[middle] == findValue)
+		{
+			found = true;
+			position = middle;
+		}
+		else if(array[middle] > findValue)
+		{
+			last = middle - 1;
+		}
+		else
+		{
+			first = middle + 1;
+		}
+	}//while
+
+	return position;
+}
