@@ -1,0 +1,38 @@
+void Class::searchAndDisplay(SearchType SearchItem) 
+{ 
+  bool found = false;   //flag to display "Item not found in list!" msg
+
+  for (unsigned int x = 0; x < ARRAY.size(); x++)
+  {
+    if (SearchItem == ARRAY[x].ObjectProp())
+    {
+      found = true;
+      cout <<"Item found!" << endl;
+      
+    cout << Stuff 
+
+		  switch(ARRAY.at(x).getObjProp())
+		  {
+		    cases
+		  
+			  default:
+				  cout << "Something is up" << endl;				
+		  }//switch
+    }
+    else
+    {
+      //Print this while it searches through the loop
+      cout << "Item not found yet..." << endl;
+    }
+  }
+
+  //If item is not found print a message saying so
+  if(found == false)
+  {
+    cout << "Item not found in list!" << endl;
+  }
+}
+
+//Delete Item
+libraryInventory.erase(libraryInventory.begin() + x);
+
