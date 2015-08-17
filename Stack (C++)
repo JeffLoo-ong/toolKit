@@ -1,0 +1,130 @@
+#include "Stack.hpp"
+
+using namespace std;
+
+Stack::Stack()
+{
+	origin = NULL;
+}
+
+void Stack::push( DataType *data )
+{
+   	if ( origin == NULL )
+	{
+      	origin = new StackNode( data );
+	}
+
+   	else
+     {
+       	StackNode *pointerToNode = origin;
+
+		while ( pointerToNode->nextitem != NULL )
+		{
+          	pointerToNode = pointerToNode->nextitem;
+     	}
+
+     	pointerToNode->nextitem = new StackNode( data );
+     }
+}
+
+void Stack::displayStack() const
+{
+	if ( origin == NULL )
+	{      
+		cout << "Cannot display Stack items; Stack is empty!" << endl;
+	}
+
+  	else
+	{
+   		StackNode *pointerToNode = origin;
+   		while (pointerToNode)
+  		{
+      			cout << pointerToNode->data->getDataProp() << ", ";
+      			pointerToNode = pointerToNode->nextitem;
+   		}
+   	}
+}
+
+
+
+
+DataType * Stack::peek() const
+{
+	DataType *failPtr = NULL;
+	if ( origin == NULL )
+	{      
+		cout << "Cannot peek Stack item; Stack is empty!" << endl;
+	}
+  	else
+	{
+		StackNode *pointerToNode = origin;
+		while ( pointerToNode->nextitem != NULL )
+		{
+        		pointerToNode = pointerToNode->nextitem;
+		}
+		return pointerToNode->data;
+	}
+	
+	return failPtr;
+}
+
+void Stack::pop()
+{
+	StackNode *pointerToNode = origin;
+	StackNode *previousPointer;
+	int target = 0;
+	int current = 0;
+
+   	if ( origin == NULL )
+	{      
+		cout << "Cannot remove Stack item; Stack is empty!" << endl;
+	}
+  	else
+	{
+		while ( pointerToNode->nextitem != NULL )
+		{
+			pointerToNode = pointerToNode->nextitem;
+
+			target ++;		
+		}
+
+		pointerToNode = origin;
+
+		while ( current != ( target  )  )
+		{
+			previousPointer = pointerToNode;
+
+        	pointerToNode = pointerToNode->nextitem;
+	
+			current ++;
+		
+		}
+
+		previousPointer->nextitem = pointerToNode->nextitem;
+
+		if ( target == 0 )
+   		{
+			origin = 0;
+  		}
+	}
+}
+
+void Stack::isEmpty()
+{
+   	if ( origin == NULL )
+	{
+		cout << "Stack is Empty!" << endl;
+	}
+}
+
+Stack::~Stack()
+{
+  	StackNode *pointerToNode = origin;
+
+  	while ( pointerToNode != NULL )
+  	{
+      		StackNode *target = pointerToNode;
+      		pointerToNode = pointerToNode->nextitem;
+      		delete target;
+  	}
+}
