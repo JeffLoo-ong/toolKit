@@ -1,0 +1,57 @@
+/*********************************************************************
+** Author:      Jeffrey Luong 
+** Date:        8/8/15
+** Description:	BubbleSort a file and print it to a file.
+*********************************************************************/
+#include <iostream>
+#include <fstream>
+#include "BubbleSort.hpp"
+
+using std::cout;
+using std::cin;
+using std::endl;
+using std::string;
+using std::ifstream;
+using std::fstream;
+
+/*Psuedocode taken from "Starting Out With C++ Early Objects, Gaddis et al. 7th edition"
+
+	Do
+		Set flag = false
+		For count = 0 to 2nd to last array subscript
+			If array[count] is greater than array[count+1]
+				Swap contents of array[count] with array[count+1]
+				Set flag to true
+
+	While flag is true, meaning a swap occured on the previous pass
+
+*/
+
+/*********************************************************************
+** Function: 	bubbleSort()	
+** Description: Sorts a list of numbers using the bubbleSort algorithm 
+** Parameters: 	int &[], ifstream&, int
+** Returns: 	NONE
+*********************************************************************/
+void bubbleSort(int array[], int numElements)
+{
+	int temp;
+	bool swap;
+	int size = numElements-1;
+	do
+	{
+		swap = false;
+		for (int count = 0; count < size; count++)
+		{
+			if(array[count] > array[count+1])
+			{
+				temp = array[count];
+				array[count] = array[count+1];
+				array[count+1] = temp;
+				swap = true;
+			}
+		}
+	}while(swap);
+}
+
+
