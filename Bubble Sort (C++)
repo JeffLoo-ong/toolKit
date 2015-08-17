@@ -4,15 +4,13 @@
 ** Description:	BubbleSort a file and print it to a file.
 *********************************************************************/
 #include <iostream>
-#include <fstream>
 #include "BubbleSort.hpp"
 
 using std::cout;
 using std::cin;
 using std::endl;
-using std::string;
-using std::ifstream;
-using std::fstream;
+
+
 
 /*Psuedocode taken from "Starting Out With C++ Early Objects, Gaddis et al. 7th edition"
 
