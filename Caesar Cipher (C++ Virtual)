@@ -1,0 +1,30 @@
+virtual char transform(char ch) 
+		{
+			char transCh;
+		
+			//If an uppercase
+			if(isupper(ch))
+			{
+				//65 = A in the ascii table
+				transCh = (((ch-65)+offSet)%26) + 65; 
+			}
+			//If a lowercase
+			else if(islower(ch))
+			{
+				//97 = a in the ascii table
+				transCh = (((ch-97)+offSet)%26) + 97;
+			}
+			//If it's a space
+			else if (isspace(ch))
+			{
+				transCh = ' ';
+			}
+			else
+			{
+				transCh = '?';
+			}
+
+			//Will throw an warning at compile time but 
+			//this should never be reached
+			return transCh;
+		};
