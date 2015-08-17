@@ -1,0 +1,22 @@
+CXX = g++
+
+CXXFLAGS = -Wall
+CXXFLAGS += -c
+LFLAGS = -Wall -g
+
+OBJS = object items here
+HEADERS = header files here
+
+all: executable 
+
+executable: $(OBJS)
+	$(CXX) $(OBJS) -o executable
+
+main.o: main.cpp $(HEADERS)
+	$(CXX) $(CXXFLAGS) main.cpp
+
+sampleObj1.o: Sample.cpp Sample.hpp
+	$(CXX) $(CXXFLAGS) Sample.cpp
+
+clean:
+	rm -f $(OBJS) executable  
