@@ -1,0 +1,57 @@
+/*********************************************************************
+** Author: 		Jeffrey Luong	
+** Date: 		6/29/2015
+** Description: Dice Implementation File
+*********************************************************************/
+
+#include <iostream>
+#include <cstdlib> //rand
+#include "Dice.hpp"
+
+using std::cout;
+using std::cin;
+using std::endl;
+
+Dice::Dice()
+{
+	setNumSides(6);
+}
+
+Dice::Dice(int numSidesIn)
+{
+	setNumSides(numSidesIn);
+}
+
+/*********************************************************************
+** Function: 	rollDice()	
+** Description: Rolls the dice once and returns the result as an int
+** Parameters: 	None
+** Returns: 	int result
+*********************************************************************/
+int Dice::rollDice()
+{
+	int result = rand() % numSides + 1;	
+	return result;
+}
+
+/*********************************************************************
+** Function: 	setNumSides()	
+** Description: Sets the value of the sides of the Dice
+** Parameters: 	int numSides
+** Returns: 	None
+*********************************************************************/
+void Dice::setNumSides(int numSidesIn)
+{
+	numSides = numSidesIn;
+}
+
+/*********************************************************************
+** Function: 	getNumSides()
+** Description: Returns the number of sides on the die
+** Parameters: 	None
+** Returns: 	int numSides
+*********************************************************************/
+int Dice::getNumSides()
+{
+	return numSides;
+}
