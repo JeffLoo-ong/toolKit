@@ -1,0 +1,12 @@
+//Make input what ever datatype you want to validate
+cin >> input
+
+while(!cin)
+	{
+    	cout << "That was no *Insert Datatype*! Please enter an *Insert Datatype*: ";
+   	 	cin.clear();
+    	cin.ignore();
+    	cin >> input;
+	}
+	
+	
