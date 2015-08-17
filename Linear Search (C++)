@@ -1,0 +1,52 @@
+/*********************************************************************
+** Author:      Jeffrey Luong 
+** Date:        8/8/15
+** Description:	Linear Search for a value.
+*********************************************************************/
+#include <fstream>
+#include "LinearSearch.hpp"
+
+using std::ifstream;
+
+/*Psuedocode taken from "Starting Out With C++ Early Objects, Gaddis et al. 7th edition"
+	
+	Set flag = false
+	Set position = -1
+	Set index = 0
+	While index < # of elements and flag = false
+		If list[index] = search value
+			flag = true
+			position = index
+		index++
+
+	return position
+
+*/
+
+/*********************************************************************
+** Function: 	linearSearch()	
+** Description: Searches through some numbers for a number via linear
+**				search.
+** Parameters: 	int, int, ifstream&
+** Returns: 	int
+*********************************************************************/
+int linearSearch(int numToFind, int numElements, ifstream& file1)
+{
+	bool found = false;
+	int position = -1;
+	int index = 0;
+	int numReceived;
+	while(index < numElements && found == false)
+	{
+		file1 >> numReceived;
+		if(numReceived == numToFind)
+		{	
+			found = true;
+			position = index;
+		}
+
+		index++;
+	}
+	return position;
+}
+
