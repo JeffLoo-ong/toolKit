@@ -1,0 +1,131 @@
+#include "Queue.hpp"
+
+using namespace std;
+
+Queue::Queue()
+{
+	front = NULL;
+	rear = NULL;
+}
+
+void Queue::enqueue( DataType *data )
+{
+   	if ( front == NULL )
+	{
+      	front = new QueueNode( data );
+      	rear = front;
+	}
+
+   	else
+     {
+
+     	rear->nextData = new QueueNode(data);
+     	rear = rear->nextDAta;
+
+     	//Old Working code for static Queue
+    	//QueueNode *pointerToNode = front;
+
+     	//This part ensures that we are adding on to the last node 
+      //of the current linked list
+		  // while ( pointerToNode->nextData != NULL )
+		  // {
+      //     	pointerToNode = pointerToNode->nextData;
+     	// }
+
+ 	    //	pointerToNode->nextData = new QueueNode( data );
+  	}
+}
+
+void Queue::displayQueue() const
+{
+	if ( front == NULL )
+	{      
+		cout << "Cannot display Queue items; Queue is empty!";
+	}
+
+  	else
+	{
+   		QueueNode *pointerToNode = front;
+
+   		while (pointerToNode)
+  		{
+      			cout << pointerToNode->Data->getDataProp() << ", ";
+
+      			pointerToNode = pointerToNode->nextData;
+   		}
+   	}
+}
+
+DataType * Queue::getFront() 
+{
+
+	if ( front != NULL )
+	{ 
+		return front->data;
+	}
+
+	else
+	{
+		cout << "Can't get Front of Queue, Queue is empty!";
+		exit(1);	
+	}
+}
+
+void Queue::removeFront()
+{
+	QueueNode *temp;
+	if( front == NULL)
+	{
+		cout <<"The Queue is empty.\n";
+	}
+	else
+	{
+		temp = front;
+		front = front->nextData;
+		delete temp;
+	}
+
+	// Old working code for static Queue
+	// QueueNode *pointerToNode = front;
+
+	// QueueNode *previousPointer;
+
+ 	//	if ( front == NULL )
+	// {      
+	// 	cout << "Can't remove Front of Queue, Queue is empty!" << endl;
+	// }
+
+ 	// else
+	// {
+	// 	previousPointer = pointerToNode;
+
+	// 	previousPointer->nextData = front->nextData;
+		
+	// 	delete front;
+
+	// 	front = previousPointer->nextData;
+	// }
+}
+
+bool Queue::isEmpty()
+{
+   	if ( front == NULL )
+	{
+		return true;
+	}
+	return false;
+}
+
+Queue::~Queue()
+{
+  	QueueNode *pointerToNode = front;
+
+  	while ( pointerToNode != NULL )
+  	{
+      		QueueNode *target = pointerToNode;
+     
+      		pointerToNode = pointerToNode->nextData;
+
+      		delete target;
+  	}
+}
