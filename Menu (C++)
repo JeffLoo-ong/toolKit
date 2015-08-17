@@ -1,0 +1,23 @@
+bool done = false;
+int menuChoice;
+
+cout << "Welcome to BLAH BLAH Program" << endl;
+
+while(!done)
+	{	
+		cout << "Please select an option below" << endl
+		<<"1) Choice 1" << endl
+
+		cin >> menuChoice;
+		cin.get();
+		
+		switch(menuChoice)
+		{
+			cases:
+			default:
+				cin.clear();
+     	  cout << "Invalid option, pick again!" << endl;
+      	cin.ignore();
+      	cout << "************************************" << endl << endl;
+		}//switch
+	}//while
